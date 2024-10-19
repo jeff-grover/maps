@@ -15,6 +15,12 @@ if __name__ == '__main__':
         print("    Where STORE_TYPEs are zero or more of the following: ")
         print("      " + '\n      '.join(RETAIL_PLACE_TYPES))
         print()
+        print("  Examples of command-line arguments:")
+        print()
+        print('    > ./nearby.py "Maverik" "South Jordan" "" "gas_station" "convenience_store" "store"')
+        print()
+        print('    > ./nearby.py "Dicks" "Salt Lake City" "Sporting Goods" "store"')
+        print()
         exit()
 
     location = CITY_LOOKUP.get(argv[2])
