@@ -1,5 +1,5 @@
 
-GOOGLE_MAPS_API_KEY = 'AIzaSyARgqbiT8r-EVl5DwoZs_mztXwmxaSNZOE'
+GOOGLE_MAPS_API_KEY = 'THIS IS A SECRET'
 
 LOCATIONS = {
     "US Center": "39.8283727,-98.5796118",  # Center of the continental US - NW of Lebanon, KS
