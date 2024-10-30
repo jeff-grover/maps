@@ -1,10 +1,26 @@
 # maps
 Experimentation with Google Maps for site management tools
 
+# FastAPI server version:
+
+As usual, set up python, PDM install, then run `main.py`
+
+The UI is available at:
+
+http://0.0.0.0:9898/
+
+SwaggerUI available at:
+
+http://0.0.0.0:9898/docs
+
+
+
+# Command-line version:
+
 To get help, try executing `./nearby.py` with no arguments:
 
 ```
-USAGE:
+COMMAND-LINE USAGE:
 
   nearby.py STORE_NAME CITY_NAME [STORE_KEYWORDS] [STORE_TYPE STORE_TYPE STORE_TYPE... etc.]
 
