@@ -1,11 +1,10 @@
-from http.client import HTTPException
-
 import uvicorn
 from fastapi import FastAPI
+from starlette import status
+from starlette.exceptions import HTTPException
 from starlette.requests import Request
 from starlette.responses import HTMLResponse
 from starlette.staticfiles import StaticFiles
-from starlette.status import HTTP_400_BAD_REQUEST
 from starlette.templating import Jinja2Templates
 from maps_client import MapsClient, GOOGLE_MAPS_API_KEY
 from data import CITY_LOOKUP
@@ -34,14 +33,14 @@ async def show_competitors(request: Request, name: str, city: str, keywords: str
     if not MAPS_CLIENT:
         MAPS_CLIENT = MapsClient()
 
-    location = CITY_LOOKUP.get(city)
+    location = CITY_LOOKUP.get(city.strip())
+    if not location:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Sorry, I don't know this city (largest 1000 US cities only): " + city)
+
     parts = location.split(',')
     lat = float(parts[0])
     lng = float(parts[1])
-
-    if not location:
-        raise HTTPException(status=HTTP_400_BAD_REQUEST,
-            detail="Sorry, I don't know this city (largest 1000 US cities only): " + city)
 
     results, store_ids, comp_ids = MAPS_CLIENT.find_nearby_competitors(name, location, keywords, *types)
 
