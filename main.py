@@ -10,7 +10,7 @@ from starlette.templating import Jinja2Templates
 from maps_client import MapsClient, GOOGLE_MAPS_API_KEY
 from data import CITY_LOOKUP
 
-app = FastAPI(title='Eval API',
+app = FastAPI(title='FleetCommander Maps API',
               description='<img alt="Fleet Commander Logo" src="/static/fc_logo.jpeg" /><h1>API for MarketDial FleetCommander™ services</h1>')
 
 
