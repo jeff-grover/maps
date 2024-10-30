@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %} MarketDial FleetCommander™{% endblock %}
+
+{% block content %}
+
+<div id="app" class="container my-8 mx-auto w-[1184px] min-w-[1184px]">
+    <table>
+        <tr>
+            <td><img alt="MarketDial Logo" src="static/favicon.svg" width=100 class="border-128 border-indigo" /></td>
+            <td><h1 class="mt-2 text-[36px] font-medium text-[#212121]">MarketDial FleetCommander™ Quick Start:</h1></td>
+        </tr>
+    </table>
+    <form id="characteristics" action="/competitors">
+        <table>
+            <tr>
+                <td rowspan="5"><img alt="MarketDial FleetCommander Logo" src="static/fc_logo.jpeg" class="border-10 border-indigo scale-50" /></td>
+                <td><p class="mt-2 text-[24px] font-medium text-[#212121]">Store:</p></td>
+                <td><input id="name" name="name" value="Maverik" class="border-4 border-indigo mt-2 text-[24px] font-medium text-[#212121]"/></td>
+            </tr>
+            <tr>
+                <td><p class="mt-2 text-[24px] font-medium text-[#212121]">City:</p></td>
+                <td><input id="city" name="city" value="Salt Lake City" class="border-4 border-indigo mt-2 text-[24px] font-medium text-[#212121]"/></td>
+            </tr>
+            <tr>
+                <td><p class="mt-2 text-[24px] font-medium text-[#212121]">Keywords:</p></td>
+                <td><input id="keywords" name="keywords" size="32" value="bodega soda fuel cigarettes" class="border-4 border-indigo mt-2 text-[24px] font-medium text-[#212121]"/></td>
+            </tr>
+<!--            TODO:  Should probably convert this list text area to a to https://flowbite.com/docs/forms/checkbox/#checkbox-list-group -->
+            <tr>
+                <td><p class="mt-2 text-[24px] font-medium text-[#212121]">Types:</p></td>
+                <td><textarea id="cats" name="cats" style="overflow-y: scroll; width: 390px; height: 480px" id="types" class="border-4 border-indigo mt-2 text-[12px] font-medium text-[#212121]">
+'bakery'
+'beauty_salon'
+'bicycle_store'
+'book_store'
+'cafe'
+'car_dealer'
+'clothing_store'
+'convenience_store'
+'department_store'
+'drugstore'
+'electronics_store'
+'florist'
+'funeral_home'
+'furniture_store'
+'gas_station'
+'home_goods_store'
+'insurance_agency'
+'jewelry_store'
+'liquor_store'
+'pet_store'
+'pharmacy'
+'restaurant'
+'shoe_store'
+'shopping_mall'
+'store'
+'supermarket'</textarea></td>
+            </tr>
+        </table>
+        <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>
+        <button type="submit" style="float: right;" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-[36px] px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Show Me!</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %} MarketDial FleetCommander™{% endblock %}
+
+{% block content %}
+
+  <script>
+    // Define place IDs for two sets
+    const set1PlaceIds = {{ store_ids | tojson}};
+    const set2PlaceIds = {{ comp_ids | tojson }};
+
+    // Define colors for each set
+    const set1Color = 'purple';
+    const set2Color = 'grey';
+
+    // Initialize the map
+    function initMap() {
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: {{ latlong | tojson }}, // Default to San Francisco
+        zoom: 12,
+      });
+
+      const placesService = new google.maps.places.PlacesService(map);
+      const infoWindow = new google.maps.InfoWindow();
+
+     // Function to create clickable markers with info windows
+      function createMarker(placeId, color) {
+        placesService.getDetails({ placeId }, (place, status) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            const marker = new google.maps.Marker({
+              position: place.geometry.location,
+              map,
+              title: place.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 8,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeWeight: 1,
+              },
+            });
+
+            // Add a click listener to open an info window with place details
+            marker.addListener("click", () => {
+              infoWindow.setContent(`
+                <div>
+                  <h3>${place.name}</h3>
+                  <p><strong>Address:</strong> ${place.formatted_address || "N/A"}</p>
+                  <p><strong>Phone:</strong> ${place.formatted_phone_number || "N/A"}</p>
+                  <p><strong>Rating:</strong> ${place.rating || "N/A"} / 5</p>
+                </div>
+              `);
+              infoWindow.open(map, marker);
+            });
+          }
+        });
+      }
+
+      // Plot markers for each set with different colors
+      set1PlaceIds.forEach(placeId => createMarker(placeId, set1Color));
+      set2PlaceIds.forEach(placeId => createMarker(placeId, set2Color));
+    }
+
+    // Load the map once the page has loaded
+    window.onload = initMap;
+  </script>
+
+
+<div id="app" class="container my-8 mx-auto w-[1184px] min-w-[1184px]">
+    <table>
+        <tr>
+            <td><img alt="MarketDial Logo" src="static/favicon.svg" width=100 class="border-128 border-indigo" /></td>
+            <td><h1 class="mt-2 text-[36px] font-medium text-[#212121]">MarketDial FleetCommander™ Location Assessment:</h1></td>
+        </tr>
+    </table>
+    <pre>
+        Debug Info:
+
+        Name: {{ name }}
+        City: {{ city }}
+        Keywords: {{ keywords }}
+        Types: {{ types }}
+        Results: {{ results }}
+    </pre>
+    <h3 class="mt-2 text-[36px] font-medium text-[#212121]">Map of Store Competition:</h3>
+    <div id="map"></div>
+    <hr/>
+    {% for store in results.keys() %}
+        <h2 class="mt-2 text-[36px] font-medium text-[#212121]">Store: {{ store }}</h2>
+        <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                    <tr><th>Competing Location:</th><th>Distance:</th><th>Travel Time:</th></tr>
+                    {% for comp in results[store] %}
+                    <tr><td>{{ comp['name'] }}</td><td>{{ comp['distance'] }}</td><td>{{ comp['time'] }}</td></tr>
+            {% endfor %}
+            </table>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

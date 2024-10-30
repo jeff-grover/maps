@@ -36,6 +36,7 @@ class MapsClient:
     def find_nearby_competitors(self, store_name, location, keywords, *args):
         global nearby_competitors, time
         target_stores = self.find_nearby(store_name, location, args)
+        store_ids = [ store['place_id'] for store in target_stores ]
         others = self.find_nearby(f'{keywords} -{store_name}', location, args, get_max=True)
         stores = []
         origins = []
@@ -103,4 +104,4 @@ class MapsClient:
                 # print(f"\t{competitor} - {distance} ({time})")
                 comp_index += 1
 
-        return nearby_competitors
+        return nearby_competitors, [origin[9:] for origin in origins], [dest[9:] for dest in destinations]
