@@ -12,6 +12,8 @@ from maps_client import MapsClient, GOOGLE_MAPS_API_KEY
 from data import CITY_LOOKUP
 import duckdb
 
+MAX_RESULTS = 500
+
 app = FastAPI(title='FleetCommander Maps API',
               description='<img alt="Fleet Commander Logo" src="/static/fc_logo.jpeg" /><h1>API for MarketDial FleetCommander™ services</h1>')
 
@@ -36,16 +38,40 @@ async def search(request: Request, name: str, type: str):
     # Connect to a database (in-memory in this case)
     con = duckdb.connect('osm_stores', read_only=True)
 
+    name_clause = ''  # Okay to have no argument or empty string
+    ends_with_s = False
+    name_filter = ''
+    if name:
+        if name[-2:] == "'s":
+            ends_with_s = True
+            name = name[:-2]
+        elif name[-1:] == 's':
+            ends_with_s = True
+            name = name[:-1]
+
+        if ends_with_s:
+            name_filter = f"WHERE (name ILIKE '{name}s%' OR brand ILIKE '{name}s%' OR name ILIKE '{name}''s' OR brand ILIKE '{name}''s%')"
+        else:
+            name_filter = f"WHERE (name ILIKE '{name}%' OR brand ILIKE '{name}%')"
+
+    conjunction = 'WHERE'
+    if name_filter:
+        conjunction = 'AND'
+
     if type == '(all store types)':
-        result = con.execute(f"SELECT * FROM stores WHERE name LIKE '{name.replace("'", "''")}%' OR brand LIKE '{name.replace("'","''")}%' LIMIT 1000;").fetchall()
+        shop_filter = ''
     elif type == '(restaurant, cafe, bar, etc.)':
-        result = con.execute(f"SELECT * FROM stores WHERE (name LIKE '{name.replace("'", "''")}%' OR brand LIKE '{name.replace("'","''")}%') AND shop IS NULL LIMIT 1000;").fetchall()
+        shop_filter = f'{conjunction} shop IS NULL'
     else:
-        result = con.execute(f"SELECT * FROM stores WHERE (name LIKE '{name.replace("'", "''")}%' OR brand LIKE '{name.replace("'","''")}%') AND shop = '{type}' LIMIT 1000;").fetchall()
+        shop_filter = f"{conjunction} shop LIKE '{type}'"
+
+    query = f'SELECT * FROM stores {name_filter} {shop_filter} LIMIT {MAX_RESULTS}'
+    print(f'Executing query: {query}')
+    result = con.execute(query).fetchall()
 
     json_result=[]
     for row in result:
-        name = row[5] or row[6]
+        store_name = row[5] or row[6] or '(no name?)'
         type = row[4] or row[3]
         if row[0]:
             name += f' ({row[0]})'
@@ -53,7 +79,7 @@ async def search(request: Request, name: str, type: str):
             address = f'{row[8]} {row[7]} {row[10]}  {row[9]}'
         else:
             address = '(no address)'
-        json_result.append({'lat': row[1], 'lng': row[2], 'name': html.escape(name),
+        json_result.append({'lat': row[1], 'lng': row[2], 'name': html.escape(store_name),
             'type': type, 'address': html.escape(address) })
     # dict_result = [dict(row) for row in result]
 

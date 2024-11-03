@@ -13,13 +13,15 @@
         <input id="location-name" name="name" size="32" value="Harmons" class="border-4 border-indigo mt-2 text-[24px] font-medium text-[#212121]" required/>
         <!-- <select id="store-type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></select> -->
         <select id="store-type" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-[16px] px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"></select>
-        <button onclick="searchLocation()" type=button class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-[16px] px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Show Locations</button>
+        <button id="search-button" onclick="searchLocation()" type=button class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-[16px] px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Show Locations</button>
     </form>
 
     <!-- Map container -->
     <div id="map"></div>
     <p id="status" class="mt-2 text-[24px] font-medium text-[#212121]">No stores found yet.</p>
-
+    <hr/>
+    <pre id="debug">
+    </pre>
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -42,6 +44,20 @@
           return color;
         }
 
+        // Get the input field
+        var input = document.getElementById("location-name");
+
+        // Execute a function when the user presses a key on the keyboard
+        input.addEventListener("keypress", function(event) {
+          // If the user presses the "Enter" key on the keyboard
+          if (event.key === "Enter") {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("search-button").click();
+          }
+        });
+
                 // Store types and counts
         const storeTypes = [
             { type_name: '(all store types)', num_stores: 7367251},
@@ -52,10 +68,8 @@
             {"type_name":"car_repair","num_stores":202747},
             {"type_name":"convenience","num_stores":611070},
             {"type_name":"bakery","num_stores":198613},
-            {"type_name":"yes","num_stores":174639},
             {"type_name":"car","num_stores":124223},
             {"type_name":"beauty","num_stores":99211},
-            {"type_name":"kiosk","num_stores":84345},
             {"type_name":"butcher","num_stores":78900},
             {"type_name":"hardware","num_stores":78419},
             {"type_name":"furniture","num_stores":74093},
@@ -86,7 +100,6 @@
             {"type_name":"vacant","num_stores":29370},
             {"type_name":"tyres","num_stores":27034},
             {"type_name":"beverages","num_stores":26279},
-            {"type_name":"newsagent","num_stores":26011},
             {"type_name":"dry_cleaning","num_stores":25628},
             {"type_name":"cosmetics","num_stores":24238},
             {"type_name":"motorcycle","num_stores":23820},
@@ -114,7 +127,6 @@
             {"type_name":"bookmaker","num_stores":12120},
             {"type_name":"outpost","num_stores":12079},
             {"type_name":"art","num_stores":12055},
-            {"type_name":"charity","num_stores":11529},
             {"type_name":"pawnbroker","num_stores":11298},
             {"type_name":"second_hand","num_stores":10940},
             {"type_name":"boutique","num_stores":10803},
@@ -162,7 +174,6 @@
             {"type_name":"convenience;gas","num_stores":3328},
             {"type_name":"frame","num_stores":3313},
             {"type_name":"watches","num_stores":3307},
-            {"type_name":"no","num_stores":3020},
             {"type_name":"herbalist","num_stores":2987},
             {"type_name":"sewing","num_stores":2971},
             {"type_name":"rental","num_stores":2690},
@@ -313,6 +324,10 @@
                 .then(response => response.json())
                 .then(data => {
                     var coordinatesArray = data.coordinates;
+
+                    const debugText = document.getElementById('debug');
+                    debugText.textContent = 'Debug JSON data: \n\n' + JSON.stringify(data, null, 2);
+
 
                     // Check if we received an array of coordinates
                     if (Array.isArray(coordinatesArray) && coordinatesArray.length > 0) {
