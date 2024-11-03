@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:e0378ccf9052ce30b684f5fae51c610537d047c03ec1c1c1f2f72da5340a4b6c"
+content_hash = "sha256:da9440f5f9523229479ef72d83099e23906189fadd5df99e0d1073bdd0db2327"
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
@@ -120,6 +120,52 @@ files = [
 ]
 
 [[package]]
+name = "cykhash"
+version = "2.0.1"
+summary = "cython wrapper for khash-sets/maps, efficient implementation of isin and unique"
+groups = ["default"]
+files = [
+    {file = "cykhash-2.0.1.tar.gz", hash = "sha256:b4794bc9f549114d8cf1d856d9f64e08ff5f246bf043cf369fdb414e9ceb97f7"},
+]
+
+[[package]]
+name = "cython"
+version = "3.0.11"
+requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
+summary = "The Cython compiler for writing C extensions in the Python language."
+groups = ["default"]
+files = [
+    {file = "Cython-3.0.11-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:11996c40c32abf843ba652a6d53cb15944c88d91f91fc4e6f0028f5df8a8f8a1"},
+    {file = "Cython-3.0.11-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:63f2c892e9f9c1698ecfee78205541623eb31cd3a1b682668be7ac12de94aa8e"},
+    {file = "Cython-3.0.11-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8b14c24f1dc4c4c9d997cca8d1b7fb01187a218aab932328247dcf5694a10102"},
+    {file = "Cython-3.0.11-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:c8eed5c015685106db15dd103fd040948ddca9197b1dd02222711815ea782a27"},
+    {file = "Cython-3.0.11-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:780f89c95b8aec1e403005b3bf2f0a2afa060b3eba168c86830f079339adad89"},
+    {file = "Cython-3.0.11-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:a690f2ff460682ea985e8d38ec541be97e0977fa0544aadc21efc116ff8d7579"},
+    {file = "Cython-3.0.11-cp312-cp312-win32.whl", hash = "sha256:2252b5aa57621848e310fe7fa6f7dce5f73aa452884a183d201a8bcebfa05a00"},
+    {file = "Cython-3.0.11-cp312-cp312-win_amd64.whl", hash = "sha256:da394654c6da15c1d37f0b7ec5afd325c69a15ceafee2afba14b67a5df8a82c8"},
+    {file = "Cython-3.0.11-py2.py3-none-any.whl", hash = "sha256:0e25f6425ad4a700d7f77cd468da9161e63658837d1bc34861a9861a4ef6346d"},
+    {file = "cython-3.0.11.tar.gz", hash = "sha256:7146dd2af8682b4ca61331851e6aebce9fe5158e75300343f80c07ca80b1faff"},
+]
+
+[[package]]
+name = "duckdb"
+version = "1.1.2"
+requires_python = ">=3.7.0"
+summary = "DuckDB in-process database"
+groups = ["default"]
+files = [
+    {file = "duckdb-1.1.2-cp312-cp312-macosx_12_0_arm64.whl", hash = "sha256:83372b1b411086cac01ab2071122772fa66170b1b41ddbc37527464066083668"},
+    {file = "duckdb-1.1.2-cp312-cp312-macosx_12_0_universal2.whl", hash = "sha256:db37441deddfee6ac35a0c742d2f9e90e4e50b9e76d586a060d122b8fc56dada"},
+    {file = "duckdb-1.1.2-cp312-cp312-macosx_12_0_x86_64.whl", hash = "sha256:19142a77e72874aeaa6fda30aeb13612c6de5e8c60fbcc3392cea6ef0694eeaf"},
+    {file = "duckdb-1.1.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:099d99dd48d6e4682a3dd6233ceab73d977ebe1a87afaac54cf77c844e24514a"},
+    {file = "duckdb-1.1.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:be86e586ca7af7e807f72479a2b8d0983565360b19dbda4ef8a9d7b3909b8e2c"},
+    {file = "duckdb-1.1.2-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:578e0953e4d8ba8da0cd69fb2930c45f51ce47d213b77d8a4cd461f9c0960b87"},
+    {file = "duckdb-1.1.2-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:72b5eb5762c1a5e68849c7143f3b3747a9f15c040e34e41559f233a1569ad16f"},
+    {file = "duckdb-1.1.2-cp312-cp312-win_amd64.whl", hash = "sha256:9b4c6b6a08180261d98330d97355503961a25ca31cd9ef296e0681f7895b4a2c"},
+    {file = "duckdb-1.1.2.tar.gz", hash = "sha256:c8232861dc8ec6daa29067056d5a0e5789919f2ab22ab792787616d7cd52f02a"},
+]
+
+[[package]]
 name = "fastapi"
 version = "0.115.4"
 requires_python = ">=3.8"
@@ -133,6 +179,25 @@ dependencies = [
 files = [
     {file = "fastapi-0.115.4-py3-none-any.whl", hash = "sha256:0b504a063ffb3cf96a5e27dc1bc32c80ca743a2528574f9cdc77daa2d31b4742"},
     {file = "fastapi-0.115.4.tar.gz", hash = "sha256:db653475586b091cb8b2fec2ac54a680ac6a158e07406e1abae31679e8826349"},
+]
+
+[[package]]
+name = "geopandas"
+version = "1.0.1"
+requires_python = ">=3.9"
+summary = "Geographic pandas extensions"
+groups = ["default"]
+dependencies = [
+    "numpy>=1.22",
+    "packaging",
+    "pandas>=1.4.0",
+    "pyogrio>=0.7.2",
+    "pyproj>=3.3.0",
+    "shapely>=2.0.0",
+]
+files = [
+    {file = "geopandas-1.0.1-py3-none-any.whl", hash = "sha256:01e147d9420cc374d26f51fc23716ac307f32b49406e4bd8462c07e82ed1d3d6"},
+    {file = "geopandas-1.0.1.tar.gz", hash = "sha256:b8bf70a5534588205b7a56646e2082fb1de9a03599651b3d80c99ea4c2ca08ab"},
 ]
 
 [[package]]
@@ -208,6 +273,62 @@ files = [
 ]
 
 [[package]]
+name = "numpy"
+version = "2.1.2"
+requires_python = ">=3.10"
+summary = "Fundamental package for array computing in Python"
+groups = ["default"]
+files = [
+    {file = "numpy-2.1.2-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:d7bf0a4f9f15b32b5ba53147369e94296f5fffb783db5aacc1be15b4bf72f43b"},
+    {file = "numpy-2.1.2-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:b1d0fcae4f0949f215d4632be684a539859b295e2d0cb14f78ec231915d644db"},
+    {file = "numpy-2.1.2-cp312-cp312-macosx_14_0_arm64.whl", hash = "sha256:f751ed0a2f250541e19dfca9f1eafa31a392c71c832b6bb9e113b10d050cb0f1"},
+    {file = "numpy-2.1.2-cp312-cp312-macosx_14_0_x86_64.whl", hash = "sha256:bd33f82e95ba7ad632bc57837ee99dba3d7e006536200c4e9124089e1bf42426"},
+    {file = "numpy-2.1.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1b8cde4f11f0a975d1fd59373b32e2f5a562ade7cde4f85b7137f3de8fbb29a0"},
+    {file = "numpy-2.1.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6d95f286b8244b3649b477ac066c6906fbb2905f8ac19b170e2175d3d799f4df"},
+    {file = "numpy-2.1.2-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:ab4754d432e3ac42d33a269c8567413bdb541689b02d93788af4131018cbf366"},
+    {file = "numpy-2.1.2-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:e585c8ae871fd38ac50598f4763d73ec5497b0de9a0ab4ef5b69f01c6a046142"},
+    {file = "numpy-2.1.2-cp312-cp312-win32.whl", hash = "sha256:9c6c754df29ce6a89ed23afb25550d1c2d5fdb9901d9c67a16e0b16eaf7e2550"},
+    {file = "numpy-2.1.2-cp312-cp312-win_amd64.whl", hash = "sha256:456e3b11cb79ac9946c822a56346ec80275eaf2950314b249b512896c0d2505e"},
+    {file = "numpy-2.1.2.tar.gz", hash = "sha256:13532a088217fa624c99b843eeb54640de23b3414b14aa66d023805eb731066c"},
+]
+
+[[package]]
+name = "packaging"
+version = "24.1"
+requires_python = ">=3.8"
+summary = "Core utilities for Python packages"
+groups = ["default"]
+files = [
+    {file = "packaging-24.1-py3-none-any.whl", hash = "sha256:5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124"},
+    {file = "packaging-24.1.tar.gz", hash = "sha256:026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"},
+]
+
+[[package]]
+name = "pandas"
+version = "2.2.3"
+requires_python = ">=3.9"
+summary = "Powerful data structures for data analysis, time series, and statistics"
+groups = ["default"]
+dependencies = [
+    "numpy>=1.22.4; python_version < \"3.11\"",
+    "numpy>=1.23.2; python_version == \"3.11\"",
+    "numpy>=1.26.0; python_version >= \"3.12\"",
+    "python-dateutil>=2.8.2",
+    "pytz>=2020.1",
+    "tzdata>=2022.7",
+]
+files = [
+    {file = "pandas-2.2.3-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:b1d432e8d08679a40e2a6d8b2f9770a5c21793a6f9f47fdd52c5ce1948a5a8a9"},
+    {file = "pandas-2.2.3-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:a5a1595fe639f5988ba6a8e5bc9649af3baf26df3998a0abe56c02609392e0a4"},
+    {file = "pandas-2.2.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:5de54125a92bb4d1c051c0659e6fcb75256bf799a732a87184e5ea503965bce3"},
+    {file = "pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:fffb8ae78d8af97f849404f21411c95062db1496aeb3e56f146f0355c9989319"},
+    {file = "pandas-2.2.3-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:6dfcb5ee8d4d50c06a51c2fffa6cff6272098ad6540aed1a76d15fb9318194d8"},
+    {file = "pandas-2.2.3-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:062309c1b9ea12a50e8ce661145c6aab431b1e99530d3cd60640e255778bd43a"},
+    {file = "pandas-2.2.3-cp312-cp312-win_amd64.whl", hash = "sha256:59ef3764d0fe818125a5097d2ae867ca3fa64df032331b7e0917cf5d7bf66b13"},
+    {file = "pandas-2.2.3.tar.gz", hash = "sha256:4f18ba62b61d7e192368b84517265a99b4d7ee8912f8708660fb4a366cc82667"},
+]
+
+[[package]]
 name = "pydantic"
 version = "2.9.2"
 requires_python = ">=3.8"
@@ -250,6 +371,123 @@ files = [
 ]
 
 [[package]]
+name = "pyogrio"
+version = "0.10.0"
+requires_python = ">=3.9"
+summary = "Vectorized spatial vector file format I/O using GDAL/OGR"
+groups = ["default"]
+dependencies = [
+    "certifi",
+    "numpy",
+    "packaging",
+]
+files = [
+    {file = "pyogrio-0.10.0-cp312-cp312-macosx_12_0_arm64.whl", hash = "sha256:2d6558b180e020f71ab7aa7f82d592ed3305c9f698d98f6d0a4637ec7a84c4ce"},
+    {file = "pyogrio-0.10.0-cp312-cp312-macosx_12_0_x86_64.whl", hash = "sha256:a99102037eead8ba491bc57825c1e395ee31c9956d7bff7b4a9e4fdbff3a13c2"},
+    {file = "pyogrio-0.10.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3a4c373281d7cbf560c5b61f8f3c7442103ad7f1c7ac4ef3a84572ed7a5dd2f6"},
+    {file = "pyogrio-0.10.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:19f18411bdf836d24cdc08b9337eb3ec415e4ac4086ba64516b36b73a2e88622"},
+    {file = "pyogrio-0.10.0-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:1abbcdd9876f30bebf1df8a0273f6cdeb29d03259290008275c7fddebe139f20"},
+    {file = "pyogrio-0.10.0-cp312-cp312-win_amd64.whl", hash = "sha256:2a3e09839590d71ff832aa95c4f23fa00a2c63c3de82c1fbd4fb8d265792acfc"},
+    {file = "pyogrio-0.10.0.tar.gz", hash = "sha256:ec051cb568324de878828fae96379b71858933413e185148acb6c162851ab23c"},
+]
+
+[[package]]
+name = "pyproj"
+version = "3.7.0"
+requires_python = ">=3.10"
+summary = "Python interface to PROJ (cartographic projections and coordinate transformations library)"
+groups = ["default"]
+dependencies = [
+    "certifi",
+]
+files = [
+    {file = "pyproj-3.7.0-cp312-cp312-macosx_12_0_x86_64.whl", hash = "sha256:8cbec92bdd6e9933ca08795c12717d1384e9b51cf4b1acf0d753db255a75c51e"},
+    {file = "pyproj-3.7.0-cp312-cp312-macosx_14_0_arm64.whl", hash = "sha256:8c4a8e4d3ba76c3adac3c087544cf92f7f9a19ea34946904a13fca48cc1c0106"},
+    {file = "pyproj-3.7.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:82624fb42aa31f6b1a860fbc0316babd07fd712642bc31022df4e9b4056bf463"},
+    {file = "pyproj-3.7.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:34e1bbb3f89c68d4a6835c40b2da8b27680eec60e8cc7cdb08c09bcc725b2b62"},
+    {file = "pyproj-3.7.0-cp312-cp312-win32.whl", hash = "sha256:952515d5592167ad4436b355485f82acebed2a49b46722159e4584b75a763dd3"},
+    {file = "pyproj-3.7.0-cp312-cp312-win_amd64.whl", hash = "sha256:0692f806224e8ed82fe4acfa57268ff444fdaf9f330689f24c0d96e59480cce1"},
+    {file = "pyproj-3.7.0.tar.gz", hash = "sha256:bf658f4aaf815d9d03c8121650b6f0b8067265c36e31bc6660b98ef144d81813"},
+]
+
+[[package]]
+name = "pyrobuf"
+version = "0.9.3"
+summary = "A Cython based protobuf compiler"
+groups = ["default"]
+dependencies = [
+    "cython>=0.23",
+    "jinja2>=2.8",
+]
+files = [
+    {file = "pyrobuf-0.9.3.tar.gz", hash = "sha256:9cca7f992c674645522247e23cf6c4d81cca42e5a65e4ae1d05f3967b0c07a80"},
+]
+
+[[package]]
+name = "pyrosm"
+version = "0.6.2"
+requires_python = ">=3.9"
+summary = "A Python tool to parse OSM data from Protobuf format into GeoDataFrame."
+groups = ["default"]
+dependencies = [
+    "cykhash",
+    "geopandas>=0.12.0",
+    "pyrobuf",
+    "python-rapidjson",
+    "setuptools>=18.0",
+    "shapely>=2.0.1",
+]
+files = [
+    {file = "pyrosm-0.6.2.tar.gz", hash = "sha256:904e9636e71fd558d127807a0beb9b53e4d2e28a2301d3c46ed8ba2d84d5e1b9"},
+]
+
+[[package]]
+name = "python-dateutil"
+version = "2.9.0.post0"
+requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+summary = "Extensions to the standard Python datetime module"
+groups = ["default"]
+dependencies = [
+    "six>=1.5",
+]
+files = [
+    {file = "python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"},
+    {file = "python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"},
+]
+
+[[package]]
+name = "python-rapidjson"
+version = "1.20"
+requires_python = ">=3.6"
+summary = "Python wrapper around rapidjson"
+groups = ["default"]
+files = [
+    {file = "python_rapidjson-1.20-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:6056fcc8caeb9b04775bf655568bba362c7670ab792c1b438671bb056db954cd"},
+    {file = "python_rapidjson-1.20-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:225bd4cbabfe7910261cbcebb8b811d4ff98e90cdd17c233b916c6aa71a9553f"},
+    {file = "python_rapidjson-1.20-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:026077b663acf93a3f2b1adb87282e611a30214b8ae8001b7e4863a3b978e646"},
+    {file = "python_rapidjson-1.20-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:884e1dd4c0770ed424737941af4d5dc9014995f9c33595f151af13f83ce282c3"},
+    {file = "python_rapidjson-1.20-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5f55531c8197cb7a21a5ef0ffa46f2b8fc8c5fe7c6fd08bdbd2063ae65d2ff65"},
+    {file = "python_rapidjson-1.20-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:c60121d155562dc694c05ed7df4e39e42ee1d3adff2a060c64a004498e6451f7"},
+    {file = "python_rapidjson-1.20-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:3a6620eed0b04196f37fab7048c1d672d03391bb29d7f09ee8fee8dea33f11f4"},
+    {file = "python_rapidjson-1.20-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:ddb63eff401ce7cf20cdd5e21942fc23fbe0e1dc1d96d7ae838645fb1f74fb47"},
+    {file = "python_rapidjson-1.20-cp312-cp312-musllinux_1_2_ppc64le.whl", hash = "sha256:05e28c3dbb4a0d74ec13af9668ef2b9f302edf83cf7ce1d8316a95364720eec0"},
+    {file = "python_rapidjson-1.20-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:b733978ecd84fc5df9a778ce821dc1f3113f7bfc2493cac0bb17efb4ae0bb8fa"},
+    {file = "python_rapidjson-1.20-cp312-cp312-win32.whl", hash = "sha256:d87041448cec00e2db5d858625a76dc1b59eef6691a039acff6d92ad8581cfc1"},
+    {file = "python_rapidjson-1.20-cp312-cp312-win_amd64.whl", hash = "sha256:5d3be149ce5475f9605f01240487541057792abad94d3fd0cd56af363cf5a4dc"},
+    {file = "python_rapidjson-1.20.tar.gz", hash = "sha256:115f08c86d2df7543c02605e77c84727cdabc4b08310d2f097e953efeaaa73eb"},
+]
+
+[[package]]
+name = "pytz"
+version = "2024.2"
+summary = "World timezone definitions, modern and historical"
+groups = ["default"]
+files = [
+    {file = "pytz-2024.2-py2.py3-none-any.whl", hash = "sha256:31c7c1817eb7fae7ca4b8c7ee50c72f93aa2dd863de768e1ef4245d426aa0725"},
+    {file = "pytz-2024.2.tar.gz", hash = "sha256:2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"},
+]
+
+[[package]]
 name = "requests"
 version = "2.32.3"
 requires_python = ">=3.8"
@@ -264,6 +502,47 @@ dependencies = [
 files = [
     {file = "requests-2.32.3-py3-none-any.whl", hash = "sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6"},
     {file = "requests-2.32.3.tar.gz", hash = "sha256:55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"},
+]
+
+[[package]]
+name = "setuptools"
+version = "75.3.0"
+requires_python = ">=3.8"
+summary = "Easily download, build, install, upgrade, and uninstall Python packages"
+groups = ["default"]
+files = [
+    {file = "setuptools-75.3.0-py3-none-any.whl", hash = "sha256:f2504966861356aa38616760c0f66568e535562374995367b4e69c7143cf6bcd"},
+    {file = "setuptools-75.3.0.tar.gz", hash = "sha256:fba5dd4d766e97be1b1681d98712680ae8f2f26d7881245f2ce9e40714f1a686"},
+]
+
+[[package]]
+name = "shapely"
+version = "2.0.6"
+requires_python = ">=3.7"
+summary = "Manipulation and analysis of geometric objects"
+groups = ["default"]
+dependencies = [
+    "numpy<3,>=1.14",
+]
+files = [
+    {file = "shapely-2.0.6-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:cec9193519940e9d1b86a3b4f5af9eb6910197d24af02f247afbfb47bcb3fab0"},
+    {file = "shapely-2.0.6-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:83b94a44ab04a90e88be69e7ddcc6f332da7c0a0ebb1156e1c4f568bbec983c3"},
+    {file = "shapely-2.0.6-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:537c4b2716d22c92036d00b34aac9d3775e3691f80c7aa517c2c290351f42cd8"},
+    {file = "shapely-2.0.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:98fea108334be345c283ce74bf064fa00cfdd718048a8af7343c59eb40f59726"},
+    {file = "shapely-2.0.6-cp312-cp312-win32.whl", hash = "sha256:42fd4cd4834747e4990227e4cbafb02242c0cffe9ce7ef9971f53ac52d80d55f"},
+    {file = "shapely-2.0.6-cp312-cp312-win_amd64.whl", hash = "sha256:665990c84aece05efb68a21b3523a6b2057e84a1afbef426ad287f0796ef8a48"},
+    {file = "shapely-2.0.6.tar.gz", hash = "sha256:997f6159b1484059ec239cacaa53467fd8b5564dabe186cd84ac2944663b0bf6"},
+]
+
+[[package]]
+name = "six"
+version = "1.16.0"
+requires_python = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+summary = "Python 2 and 3 compatibility utilities"
+groups = ["default"]
+files = [
+    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
+    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]
 
 [[package]]
@@ -312,6 +591,17 @@ groups = ["default"]
 files = [
     {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
     {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
+]
+
+[[package]]
+name = "tzdata"
+version = "2024.2"
+requires_python = ">=2"
+summary = "Provider of IANA time zone data"
+groups = ["default"]
+files = [
+    {file = "tzdata-2024.2-py2.py3-none-any.whl", hash = "sha256:a48093786cdcde33cad18c2555e8532f34422074448fbc874186f0abd79565cd"},
+    {file = "tzdata-2024.2.tar.gz", hash = "sha256:7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc"},
 ]
 
 [[package]]
