@@ -38,6 +38,8 @@ async def search(request: Request, name: str, type: str):
 
     if type == '(all store types)':
         result = con.execute(f"SELECT * FROM stores WHERE name LIKE '{name.replace("'", "''")}%' OR brand LIKE '{name.replace("'","''")}%' LIMIT 1000;").fetchall()
+    elif type == '(restaurant, cafe, bar, etc.)':
+        result = con.execute(f"SELECT * FROM stores WHERE (name LIKE '{name.replace("'", "''")}%' OR brand LIKE '{name.replace("'","''")}%') AND shop IS NULL LIMIT 1000;").fetchall()
     else:
         result = con.execute(f"SELECT * FROM stores WHERE (name LIKE '{name.replace("'", "''")}%' OR brand LIKE '{name.replace("'","''")}%') AND shop = '{type}' LIMIT 1000;").fetchall()
 
